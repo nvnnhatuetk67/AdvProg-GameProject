@@ -1,0 +1,45 @@
+# Created by https://www.toptal.com/developers/gitignore/api/c++
+# Edit at https://www.toptal.com/developers/gitignore?templates=c++
+
+### C++ ###
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+
+# Fortran module files
+*.mod
+*.smod
+
+# Executables
+*.exe
+*.out
+*.app
+
+
+
+# End of https://www.toptal.com/developers/gitignore/api/c++
+
+# SDL Source vs Debug
+
+GameProject/x64/
+GameProject/SDL2_ttf-2.0.18/
+GameProject/SDL2_mixer-2.0.4/
+GameProject/SDL2_image-2.0.5/
+GameProject/SDL2-2.0.8/
+GameProject/SDL2-2.0.20/
+GameProject/.vs
+.vs/
+*.vcxproj
