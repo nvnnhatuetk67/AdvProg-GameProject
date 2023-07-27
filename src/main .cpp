@@ -50,11 +50,23 @@ int main(int arcs, char* argv[]) {
     if(font == nullptr){
         cout << "Cann't load font!\n";
     }
-
+    //Map
     GameMap game_map;
     game_map.LoadMap("map/map1.txt");
     game_map.LoadTiles(renderer);
     Map mainMap = game_map.getMap();
+
+    GameMap game_map2;
+    game_map2.LoadMap("map/map2.txt");
+    game_map2.LoadTiles(renderer);
+    Map mainMap2 = game_map2.getMap();
+
+    GameMap game_map3;
+    game_map3.LoadMap("map/map3.txt");
+    game_map3.LoadTiles(renderer);
+    Map mainMap3 = game_map3.getMap();
+    //
+    
     Text time_game;
     time_game.SetColor(Text ::GREEN);
     Text score_game;
