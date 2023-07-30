@@ -17,6 +17,7 @@ Mix_Music* musicIngame = loadMusic("sounds/ingame.wav", musicIngame);
 bool CheckFocusWithRect(const int& x, const int& y, const SDL_Rect& rect);
 int main(int arcs, char* argv[]) {
 
+    srand((int)time(0));
     ImpTimer fps_timer;
 	//Create game screen
 
@@ -50,7 +51,7 @@ int main(int arcs, char* argv[]) {
     if(font == nullptr){
         cout << "Cann't load font!\n";
     }
-    //Map
+    // ----load map---
     GameMap game_map;
     game_map.LoadMap("map/map1.txt");
     game_map.LoadTiles(renderer);
@@ -65,8 +66,8 @@ int main(int arcs, char* argv[]) {
     game_map3.LoadMap("map/map3.txt");
     game_map3.LoadTiles(renderer);
     Map mainMap3 = game_map3.getMap();
-    //
     
+    //
     Text time_game;
     time_game.SetColor(Text ::GREEN);
     Text score_game;
@@ -144,13 +145,13 @@ int main(int arcs, char* argv[]) {
         gbackground.Render(renderer, nullptr);
         Mute.setTexture(mute);
         Mute.Render(renderer, nullptr);
+        srand(time(NULL)); 
         //--------------------------------------------
         //------------------Menu----------------------
         //--------------------------------------------
         if(checkMenu ){
             
-            if(!Mix_PlayingMusic()){
-                
+            if(!Mix_PlayingMusic()){               
                 playMusic(music);
             }
             menu.Render(renderer, nullptr);
@@ -265,10 +266,13 @@ int main(int arcs, char* argv[]) {
                     scoreTable.Render(renderer, nullptr);
                     
                     Map mapdata = game_map.getMap();
+                    
                     player.DoPlayer(mapdata);
                     loseGame = player.checkLose(mapdata);
                     game_map.SetMap(mapdata);
                     game_map.DrawMap(renderer);
+                    
+                    
 
                     player.show(renderer);
                     //Show score 
@@ -371,7 +375,13 @@ int main(int arcs, char* argv[]) {
                             if((x > 516 && x < 606 )&&( y > 547 && y < 637)){
                                 player.resetAnimation();
                                 player.setPos(640, 128);
-                                game_map.SetMap(mainMap);
+                                if(rand() % 3 == 0)
+                                    continue;
+                                else if (rand() % 3 ==  1)
+                                    mainMap = mainMap2;
+                                else mainMap = mainMap3;
+
+                                game_map.SetMap(mainMap);     
                                 player.setWingame(0);
                                 player.setScore(0);
                                 checkMenu = 1;
@@ -419,7 +429,14 @@ int main(int arcs, char* argv[]) {
                             if((x > 516 && x < 606 )&&( y > 547 && y < 637)){
                                 player.resetAnimation();
                                 player.setPos(640, 128);
-                                game_map.SetMap(mainMap);
+                                if(rand() % 3 == 0)
+                                    continue;
+                                else if (rand() % 3 ==  1)
+                                    mainMap = mainMap2;
+                                else 
+                                    mainMap = mainMap3;
+                                      
+                                game_map.SetMap(mainMap); 
                                 loseGame = 0;
                                 player.setScore(0);
                                 checkMenu = 1;
@@ -438,7 +455,7 @@ int main(int arcs, char* argv[]) {
 
         //Show all
         SDL_RenderPresent(renderer);
-            //Timer
+        //Set Timer
         int real_inp_time = fps_timer.get_tick();
         int time_one_frame = 1000 / FRAME_PER_SECOND;
         if(real_inp_time < time_one_frame){
