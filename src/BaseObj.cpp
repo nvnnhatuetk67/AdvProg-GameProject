@@ -1,4 +1,5 @@
 #include "BaseObj.h"
+using namespace std;
 BaseObj::BaseObj() {
 	texture = NULL;
 	rect.x = 0;
@@ -6,18 +7,19 @@ BaseObj::BaseObj() {
 	rect.w = 0;
 	rect.h = 0;
 }
+
 BaseObj::~BaseObj() {
 	Free();
 }
 
 
 //Create a new texture from the loaded surface
-bool BaseObj::LoadImg(string path, SDL_Renderer* screen) {
+bool BaseObj::LoadImg(string file_path, SDL_Renderer* screen) {
 	Free();
 
 	SDL_Texture* ntexture = NULL;
 
-	SDL_Surface* loadimg = IMG_Load(path.c_str());
+	SDL_Surface* loadimg = IMG_Load(file_path.c_str());
 	if (loadimg != NULL) {
 		SDL_SetColorKey(loadimg, SDL_TRUE, SDL_MapRGB(loadimg->format, 0, 255, 255));
 

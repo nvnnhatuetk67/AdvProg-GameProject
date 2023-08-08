@@ -31,7 +31,7 @@ public:
 		return texture;
 	}
 
-	virtual bool LoadImg(string path, SDL_Renderer* screen);
+	virtual bool LoadImg(string file_path, SDL_Renderer* screen);
 	void Render(SDL_Renderer* des, const SDL_Rect* clip = NULL);
 	void Free();
 

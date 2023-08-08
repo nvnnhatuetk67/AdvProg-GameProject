@@ -9,7 +9,7 @@
 
 using namespace std;
 BaseObj gbackground;
-BaseObj floor;
+BaseObj fl;
 TTF_Font* font = TTF_OpenFont("fonts/04B_19__.TTF", 64);
 Mix_Music* music = loadMusic("sounds/bgm.wav", music);
 Mix_Music* musicMenu = loadMusic("sounds/bgm.wav", musicMenu);
@@ -33,9 +33,9 @@ int main(int arcs, char* argv[]) {
     gbackground.LoadImg("assets/BG.png", renderer);
     gbackground.SetSizeRect(SCREEN_WIDTH, SCREEN_HEIGHT);
     
-    floor.LoadImg("assets/floor.png", renderer);
-    floor.SetRect(640,128);
-    floor.SetSizeRect(512,512);
+    fl.LoadImg("assets/floor.png", renderer);
+    fl.SetRect(640,128);
+    fl.SetSizeRect(512,512);
     BaseObj scoreTable;
     scoreTable.LoadImg("assets/scoring.png", renderer);
     scoreTable.SetEntireRect(64,64, 448, 640 );
@@ -262,7 +262,7 @@ int main(int arcs, char* argv[]) {
                 }   
                     mute = player.getMute();
 
-                    floor.Render(renderer, nullptr);
+                    fl.Render(renderer, nullptr);
                     scoreTable.Render(renderer, nullptr);
                     
                     Map mapdata = game_map.getMap();

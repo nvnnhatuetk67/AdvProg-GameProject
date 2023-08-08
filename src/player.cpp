@@ -122,7 +122,7 @@ void Player::show(SDL_Renderer* des) {
 
  	SDL_Rect* currentclip = &FRAME_CLIP[frame];
 
-	SDL_Rect renderQuad = { rect.x,rect.y, 48 , 48 };
+	SDL_Rect renderQuad = { rect.x,rect.y, 49 , 49 };
 // 	if (currentclip != NULL)
 // 	{
 // 		renderQuad.w = 3*currentclip->w;
@@ -551,5 +551,28 @@ bool Player :: checkLose(Map& mapdata){
 		playLoseGame();
 		return true;
 	}
+	//map2
+	if(mapdata.tile[4][10] == WRONG && mapdata.tile[3][12] == WRONG && mapdata.tile[2][13] == WRONG){
+		playLoseGame();
+		return true;
+	}
+	if(mapdata.tile[9][12] == WRONG && mapdata.tile[7][12] == WRONG && mapdata.tile[5][14] == WRONG && mapdata.tile[4][16] == WRONG){
+		playLoseGame();
+		return true;
+	}
+	if(mapdata.tile[8][15] == WRONG && mapdata.tile[7][16] == WRONG && mapdata.tile[6][17] == WRONG){
+		playLoseGame();
+		return true;
+	}
+	//map3
+	if(mapdata.tile[9][12] == WRONG && mapdata.tile[7][13] == WRONG && mapdata.tile[5][14] == WRONG && mapdata.tile[4][16] == WRONG){
+		playLoseGame();
+		return true;
+	}
+	if(mapdata.tile[9][15] == WRONG && mapdata.tile[8][16] == WRONG && mapdata.tile[7][17] == WRONG){
+		playLoseGame();
+		return true;
+	}
+
 	return false;
 }
