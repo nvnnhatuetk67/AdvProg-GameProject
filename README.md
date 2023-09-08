@@ -19,7 +19,7 @@ In this game, players will embark on an exciting adventure to uncover a hidden t
      **.\game**
      
  ## Rules of game
-  ![tutorial](https://user-images.githubusercontent.com/125446795/235365147-b79855c2-f221-4583-823c-b5cd7a01be79.png)
+ 
    
  ## Credits
 The  **Mystery Journey** game was created by **Nguyen Nhat**. If you have any questions or suggestions, feel free to contact me at nvnhat4304@gmail.com.    
